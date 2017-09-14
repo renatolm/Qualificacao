@@ -1,0 +1,6 @@
+\select@language {brazilian}
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{Fuzzy Relations and Inference background}{4}{0}{2}
+\beamer@sectionintoc {3}{Moser-Navara Axioms}{6}{0}{3}
+\beamer@sectionintoc {4}{FIS based on Subsethood and Similarity measures}{8}{0}{4}
+\beamer@sectionintoc {5}{Experimental Results}{10}{0}{5}

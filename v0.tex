@@ -1,0 +1,364 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[FRBS and activation methods]{Theoretical and practical study about fuzzy rule based systems and their activation methods} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author[Renato Lopes Moura]{Renato Lopes Moura \\[5ex] 
+\small Advisor: Peter Sussner} % Your name
+\institute[Unicamp] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+Universidade Estadual de Campinas \\ % Your institution for the title page
+\medskip
+\textit{ra163050@ime.unicamp.br} % Your email address
+}
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+\begin{frame}
+\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+\section{Introduction}
+\begin{frame}
+\frametitle{Introduction}
+This work presents the Moser-Navara axioms, that is an attempt of axiomatization for the design of Fuzzy Inference Systems (FIS) that has a mathematical foundation instead of just basing in empirical results. Different FIS designs using conjunctive and implicative models and their link with Mathematical Morphology theory will be explored as well as their adherence to the aforementioned axioms. Finally, there are some experimental results of different FIS designs and a comparison of their performances.
+\end{frame}
+
+%------------------------------------------------
+
+\section{Fuzzy Relations and Inference background}
+
+\begin{frame}
+\frametitle{Fuzzy Relations models}
+\begin{block}{Conjunctive model}
+\begin{center}
+$R^{\vee}_{\ast}(x,y) = \bigvee (A_{i}(x) \ast B_{i}(y))$
+\end{center}
+where $\ast$ is a left-continuous t-norm.
+\end{block}
+
+\begin{block}{Implicative model}
+\begin{center}
+$R^{\wedge}_{\rightarrow}(x,y) = \bigwedge (A_{i}(x) \rightarrow B_{i}(y))$
+\end{center}
+where $\rightarrow$ is a residual implication.
+\end{block}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Fuzzy Inference compositions}
+\begin{block}{Compositional Rule of Inference (sup-$\ast$ composition)}
+\begin{center}
+$B'(y) = (A' \circ R)(y) = \bigvee (A'(x) \ast R(x,y))$
+\end{center}
+\end{block}
+
+\begin{block}{Bandler-Kohout subproduct (inf-$\rightarrow$ composition)}
+\begin{center}
+$B'(y) = (A' \vartriangleleft R)(y) = \bigwedge (A'(x) \rightarrow R(x,y))$
+\end{center}
+\end{block}
+\end{frame}
+
+%------------------------------------------------
+\section{Moser-Navara Axioms} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+%------------------------------------------------
+
+%\subsection{Subsection Example} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
+
+\begin{frame}
+\frametitle{Moser-Navara Axioms}
+\begin{enumerate}
+\item For all $i \in {1,\dots,n}$
+\begin{center}
+$A_{i} \circ R^{\vee}_{\ast} = B_{i}$
+\end{center}
+
+\hfill
+
+\item For each normal input $A' \in \mathcal{F}(X)$ there is an index $i$ such that
+\begin{center}
+$A' \circ R^{\vee}_{\ast} \nsubseteq B_{i}$
+\end{center}
+
+\hfill
+
+\item Output $A' \circ R^{\vee}_{\ast}$ belongs to the union of consequents $B_{i}$ of "fired rules"
+\begin{center}
+$A' \circ R^{\vee}_{\ast} \subseteq \bigcup\limits_{i \in F} B_{i}$\\
+$F = \{i|Supp(A_{i})\cap Supp(A') \neq \emptyset\}, (B_{i} \cup B_{j})(y) = B_{i}(y) \vee B_{j}(y)$
+\end{center}
+\end{enumerate}
+
+\hfill
+
+The similar results for implicative model $R^{\wedge}_{\rightarrow}$ follow in the same way.\par
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Interpretation of Axioms}
+A literal interpretation of these axioms could be:
+\begin{enumerate}
+\item The fuzzy relation $R(x,y)$ should present recall (like an autoassociative memory)
+
+\hfill
+
+\item For normal inputs, the system gives significant outputs with non-trivial information
+
+\hfill
+
+\item If the input of the FIS is contained in the universe of antecedents, there should be a non-zero output for it
+\end{enumerate}
+
+\end{frame}
+
+%------------------------------------------------
+
+\section{FIS based on Subsethood and Similarity measures}
+
+%\begin{frame}
+%Recently there were a few works suggesting the use of Similarity and Subsethood (inclusion) measures for the activation of fuzzy rules in a FIS.\par
+%The 
+%\end{frame}
+
+\begin{frame}
+\frametitle{FIS Rule activation using Similarity measure}
+\end{frame}
+
+\begin{frame}
+\frametitle{FIS Rule activation using Subsethood measure}
+\end{frame}
+
+%------------------------------------------------
+
+\section{Experimental Results}
+
+\begin{frame}
+\frametitle{Parking problem}
+\end{frame}
+
+%------------------------------------------------
+%------------------------------------------------
+%------------------------------------------------
+
+%\begin{frame}
+%\frametitle{Paragraphs of Text}
+%Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. %Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
+
+%Sed diam enim, sagittis nec condimentum sit amet, ullamcorper sit amet libero. Aliquam vel dui orci, a porta odio. Nullam id suscipit ipsum. Aenean lobortis commodo sem, ut commodo %leo gravida vitae. Pellentesque vehicula ante iaculis arcu pretium rutrum eget sit amet purus. Integer ornare nulla quis neque ultrices lobortis. Vestibulum ultrices tincidunt %libero, quis commodo erat ullamcorper id.
+%\end{frame}
+
+%------------------------------------------------
+
+%\begin{frame}
+%\frametitle{Blocks of Highlighted Text}
+%\begin{block}{Block 1}
+%Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante %purus, quis accumsan dolor.
+%\end{block}
+
+%\begin{block}{Block 2}
+%Pellentesque sed tellus purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum quis magna at risus dictum tempor eu vitae %velit.
+%\end{block}
+
+%\begin{block}{Block 3}
+%Suspendisse tincidunt sagittis gravida. Curabitur condimentum, enim sed venenatis rutrum, ipsum neque consectetur orci, sed blandit justo nisi ac lacus.
+%\end{block}
+%\end{frame}
+
+%------------------------------------------------
+
+%\begin{frame}
+%\frametitle{Multiple Columns}
+%\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+
+%\column{.45\textwidth} % Left column and width
+%\textbf{Heading}
+%\begin{enumerate}
+%\item Statement
+%\item Explanation
+%\item Example
+%\end{enumerate}
+
+%\column{.5\textwidth} % Right column and width
+%Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante %purus, quis accumsan dolor.
+
+%\end{columns}
+%\end{frame}
+
+%------------------------------------------------
+%\section{Second Section}
+%------------------------------------------------
+
+%\begin{frame}
+%\frametitle{Table}
+%\begin{table}
+%\begin{tabular}{l l l}
+%\toprule
+%\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
+%\midrule
+%Treatment 1 & 0.0003262 & 0.562 \\
+%Treatment 2 & 0.0015681 & 0.910 \\
+%Treatment 3 & 0.0009271 & 0.296 \\
+%\bottomrule
+%\end{tabular}
+%\caption{Table caption}
+%\end{table}
+%\end{frame}
+
+%------------------------------------------------
+
+%\begin{frame}
+%\frametitle{Theorem}
+%\begin{theorem}[Mass--energy equivalence]
+%$E = mc^2$
+%\end{theorem}
+%\end{frame}
+
+%------------------------------------------------
+
+%\begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
+%\frametitle{Verbatim}
+%\begin{example}[Theorem Slide Code]
+%\begin{verbatim}
+%\begin{frame}
+%\frametitle{Theorem}
+%\begin{theorem}[Mass--energy equivalence]
+%$E = mc^2$
+%\end{theorem}
+%\end{frame}\end{verbatim}
+%\end{example}
+%\end{frame}
+
+%------------------------------------------------
+
+%\begin{frame}
+%\frametitle{Figure}
+%Uncomment the code on this slide to include your own image from the same directory as the template .TeX file.
+%\begin{figure}
+%\includegraphics[width=0.8\linewidth]{test}
+%\end{figure}
+%\end{frame}
+
+%------------------------------------------------
+
+%\begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
+%\frametitle{Citation}
+%An example of the \verb|\cite| command to cite within the presentation:\\~
+
+%This statement requires citation \cite{p1}.
+%\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{References}
+%\footnotesize{
+%\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+%\bibitem[Smith, 2012]{p1} John Smith (2012)
+%\newblock Title of the publication
+%\newblock \emph{Journal Name} 12(3), 45 -- 678.
+%\end{thebibliography}
+%}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document} 

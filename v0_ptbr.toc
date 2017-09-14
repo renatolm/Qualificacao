@@ -1,0 +1,8 @@
+\select@language {brazilian}
+\beamer@sectionintoc {1}{Introdu\IeC {\c c}\IeC {\~a}o}{3}{0}{1}
+\beamer@sectionintoc {2}{Conceitos matem\IeC {\'a}ticos}{5}{0}{2}
+\beamer@sectionintoc {3}{Sistemas fuzzy baseados em regras}{16}{0}{3}
+\beamer@sectionintoc {4}{M\IeC {\'e}todos de ativa\IeC {\c c}\IeC {\~a}o de regras fuzzy}{23}{0}{4}
+\beamer@sectionintoc {5}{Axiomas de Moser-Navara}{32}{0}{5}
+\beamer@sectionintoc {6}{Estudos de caso}{41}{0}{6}
+\beamer@sectionintoc {7}{Conclus\IeC {\~a}o}{44}{0}{7}
